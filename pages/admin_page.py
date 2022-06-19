@@ -13,4 +13,3 @@ USERNAME_INPUT = (By.CSS_SELECTOR, "input#input-username")
 PASSWORD_INPUT = (By.CSS_SELECTOR, "input#input-password")
 FORGOTTEN_PASSWORD_LINK = (By.CSS_SELECTOR, ".help-block a")
 LOGIN_BUTTON = (By.CSS_SELECTOR, "button[type='submit']")
-
