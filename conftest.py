@@ -5,8 +5,6 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
-from webdriver_manager.opera import OperaDriverManager
-from selenium.webdriver.chrome.options import Options
 from dotenv import load_dotenv
 
 load_dotenv()  # add your GH_TOKEN to .env file
@@ -20,10 +18,6 @@ def driver(request):
         browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
     elif browser_name == "firefox":
         browser = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
-    elif browser_name == "opera":
-        options = Options()
-        options.add_experimental_option('w3c', True)
-        browser = webdriver.Opera(executable_path=OperaDriverManager().install(), options=options)
     elif browser_name == "safari":
         browser = webdriver.Safari()
     else:
