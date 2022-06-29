@@ -19,22 +19,22 @@ def test_main_page(driver, url):
 def test_catalog_desktops_page(driver, url):
     driver.get(url + catalog_desktops_page.PATH)
 
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(catalog_desktops_page.BREADCRUMB_HOME))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(catalog_desktops_page.BREADCRUMB_DESKTOPS))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(catalog_desktops_page.BREADCRUMB_HOME))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(catalog_desktops_page.BREADCRUMB_DESKTOPS))
     assert WebDriverWait(driver, 1).until(
         ec.visibility_of_element_located(catalog_desktops_page.CATALOG_TITLE)).text == catalog_desktops_page.TITLE
     assert WebDriverWait(driver, 1).until(ec.visibility_of_element_located(
         catalog_desktops_page.CATALOG_DESCRIPTION)).text == catalog_desktops_page.DESCRIPTION
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(catalog_desktops_page.CATALOG_IMAGE))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(catalog_desktops_page.SORT_SELECT))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(catalog_desktops_page.SHOW_SELECT))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(catalog_desktops_page.ITEM_SNIPPET))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(catalog_desktops_page.ITEM_IMAGE))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(catalog_desktops_page.ITEM_NAME))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(catalog_desktops_page.CATALOG_IMAGE))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(catalog_desktops_page.SORT_SELECT))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(catalog_desktops_page.SHOW_SELECT))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(catalog_desktops_page.ITEM_SNIPPET))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(catalog_desktops_page.ITEM_IMAGE))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(catalog_desktops_page.ITEM_NAME))
     WebDriverWait(driver, 1).until(ec.visibility_of_element_located(catalog_desktops_page.ITEM_PRICE))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(catalog_desktops_page.ADD_TO_CART))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(catalog_desktops_page.ADD_TO_WISHLIST))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(catalog_desktops_page.COMPARE_THIS_PRODUCT))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(catalog_desktops_page.ADD_TO_CART))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(catalog_desktops_page.ADD_TO_WISHLIST))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(catalog_desktops_page.COMPARE_THIS_PRODUCT))
 
 
 def test_item_desktop_page(driver, url):
@@ -42,13 +42,13 @@ def test_item_desktop_page(driver, url):
 
     assert WebDriverWait(driver, 1).until(
         ec.visibility_of_element_located(item_desktop_page.ITEM_TITLE)).text == item_desktop_page.NAME
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(item_desktop_page.ITEM_PICTURES))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(item_desktop_page.ADD_TO_CART))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(item_desktop_page.COMPARE_THIS_PRODUCT))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(item_desktop_page.ADD_TO_WISHLIST))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(item_desktop_page.DESCRIPTION_TAB))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(item_desktop_page.SPECIFICATION_TAB))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(item_desktop_page.REVIEWS_TAB))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(item_desktop_page.ITEM_PICTURES))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(item_desktop_page.ADD_TO_CART))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(item_desktop_page.COMPARE_THIS_PRODUCT))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(item_desktop_page.ADD_TO_WISHLIST))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(item_desktop_page.DESCRIPTION_TAB))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(item_desktop_page.SPECIFICATION_TAB))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(item_desktop_page.REVIEWS_TAB))
 
 
 def test_admin_page(driver, url):
@@ -60,10 +60,10 @@ def test_admin_page(driver, url):
         ec.visibility_of_element_located(admin_page.USERNAME_TITLE)).text == admin_page.USERNAME_TITLE_TEXT
     assert WebDriverWait(driver, 1).until(
         ec.visibility_of_element_located(admin_page.PASSWORD_TITLE)).text == admin_page.PASSWORD_TITLE_TEXT
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(admin_page.USERNAME_INPUT))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(admin_page.PASSWORD_INPUT))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(admin_page.FORGOTTEN_PASSWORD_LINK))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(admin_page.LOGIN_BUTTON))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(admin_page.USERNAME_INPUT))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(admin_page.PASSWORD_INPUT))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(admin_page.FORGOTTEN_PASSWORD_LINK))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(admin_page.LOGIN_BUTTON))
 
 
 def test_registration_page(driver, url):
@@ -71,10 +71,10 @@ def test_registration_page(driver, url):
 
     assert WebDriverWait(driver, 1).until(
         ec.visibility_of_element_located(registration_page.TITLE)).text == registration_page.TITLE_TEXT
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(registration_page.FIRST_NAME_INPUT))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(registration_page.LAST_NAME_INPUT))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(registration_page.EMAIL_INPUT))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(registration_page.PHONE_INPUT))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(registration_page.PASSWORD_INPUT))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(registration_page.PASSWORD_CONFIRM_INPUT))
-    WebDriverWait(driver, 1).until(ec.element_to_be_clickable(registration_page.CONTINUE_BUTTON))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(registration_page.FIRST_NAME_INPUT))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(registration_page.LAST_NAME_INPUT))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(registration_page.EMAIL_INPUT))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(registration_page.PHONE_INPUT))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(registration_page.PASSWORD_INPUT))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(registration_page.PASSWORD_CONFIRM_INPUT))
+    WebDriverWait(driver, 1).until(ec.visibility_of_element_located(registration_page.CONTINUE_BUTTON))
