@@ -13,24 +13,24 @@ load_dotenv()  # add your GH_TOKEN to .env file
 def driver(request):
     browser_name = request.config.getoption("--browser")
     if browser_name == "chrome":
-        browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
     elif browser_name == "firefox":
-        browser = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
+        driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
     elif browser_name == "safari":
-        browser = webdriver.Safari()
+        driver = webdriver.Safari()
     else:
         raise AttributeError(f"Browser '{browser_name}' is not supported")
 
-    request.addfinalizer(browser.close)
+    request.addfinalizer(driver.close)
 
-    return browser
+    return driver
+
+
+@pytest.fixture
+def base_url(request):
+    return request.config.getoption("--url")
 
 
 def pytest_addoption(parser):
     parser.addoption("--browser", default="chrome", help="Browser to run")
-    parser.addoption("--url", default="http://10.14.77.199:8081", help="Base URL")
-
-
-@pytest.fixture
-def url(request):
-    return request.config.getoption("--url")
+    parser.addoption("--url", default="http://10.14.77.199:8081", help="Base host URL")
