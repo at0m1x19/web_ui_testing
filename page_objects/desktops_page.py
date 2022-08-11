@@ -24,5 +24,8 @@ class DesktopsPage(BasePage):
     ADD_TO_WISHLIST = (By.CSS_SELECTOR, ".product-thumb button[data-original-title='Add to Wish List']")
     COMPARE_THIS_PRODUCT = (By.CSS_SELECTOR, ".product-thumb button[data-original-title='Compare this Product']")
 
+    def open(self):
+        self.browser.get(self.base_url + self.PATH)
+
     def get_catalog_description_text(self):
         return self.verify_element_presence(self.CATALOG_DESCRIPTION).text.strip('\n\t')

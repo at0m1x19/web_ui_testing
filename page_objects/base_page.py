@@ -4,11 +4,9 @@ from selenium.webdriver.support import expected_conditions as ec
 
 
 class BasePage:
-    def __init__(self, browser):
+    def __init__(self, browser, base_url):
         self.browser = browser
-
-    def open(self, url, path=""):
-        self.browser.get(url + path)
+        self.base_url = base_url
 
     def verify_element_presence(self, locator: tuple):
         try:
@@ -16,13 +14,13 @@ class BasePage:
         except TimeoutException:
             raise AssertionError(f"Couldn't find element by locator: {locator}")
 
-    def _verify_all_elements_presence(self, locator: tuple):
+    def verify_all_elements_presence(self, locator: tuple):
         try:
             return WebDriverWait(self.browser, 2).until(ec.visibility_of_all_elements_located(locator))
         except TimeoutException:
             raise AssertionError(f"Couldn't find elements by locator: {locator}")
 
-    def _element(self, locator: tuple):
+    def element(self, locator: tuple):
         return self.verify_element_presence(locator)
 
     def verify_page_title(self, title):
@@ -30,3 +28,13 @@ class BasePage:
 
     def get_element_text(self, locator):
         return self.verify_element_presence(locator).text
+
+    def verify_elements_are_not_present(self, locator: tuple):
+        try:
+            return WebDriverWait(self.browser, 2).until_not(ec.visibility_of_all_elements_located(locator))
+        except TimeoutException:
+            raise AssertionError(f"Elements are still present by locator: {locator}")
+
+    def accept_alert(self):
+        WebDriverWait(self.browser, 2).until(ec.alert_is_present())
+        self.browser.switch_to.alert.accept()

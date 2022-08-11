@@ -15,3 +15,5 @@ class ItemPage(BasePage):
     SPECIFICATION_TAB = (By.CSS_SELECTOR, "a[href='#tab-specification']")
     REVIEWS_TAB = (By.CSS_SELECTOR, "a[href='#tab-review']")
 
+    def open(self):
+        self.browser.get(self.base_url + self.PATH)

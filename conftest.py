@@ -5,8 +5,9 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from dotenv import load_dotenv
+from faker import Faker
 
-load_dotenv()  # add your GH_TOKEN to .env file
+load_dotenv()
 
 
 @pytest.fixture
@@ -31,6 +32,12 @@ def base_url(request):
     return request.config.getoption("--url")
 
 
+@pytest.fixture(scope='function', autouse=True)
+def faker_email():
+    faker = Faker()
+    return faker.email()
+
+
 def pytest_addoption(parser):
     parser.addoption("--browser", default="chrome", help="Browser to run")
-    parser.addoption("--url", default="http://10.14.77.199:8081", help="Base host URL")
+    parser.addoption("--url", default="http://192.168.3.6:8081", help="Base host URL")
