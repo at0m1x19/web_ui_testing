@@ -41,4 +41,3 @@ def faker_email():
 def pytest_addoption(parser):
     parser.addoption("--browser", default="chrome", help="Browser to run")
     parser.addoption("--url", default="http://192.168.3.6:8081", help="Base host URL")
-
